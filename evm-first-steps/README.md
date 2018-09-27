@@ -1,0 +1,1 @@
+Presentation for September 27, 2018 at Paralelni Polis (www.paralelnipolis.cz).
