@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RevealJS : /Users/dteiml/dev/presentations/evm-first-steps/slides.md</title>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css" id="theme">
+        
+       
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/darkula.css">
+
+        
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+          document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <style type="text/css">
+            @page {    
+              margin: 0;
+              size: auto; 
+            }
+        </style>
+
+        <script>
+         if(window.location.search.match( /print-pdf-now/gi )) {
+           window.print();
+         }
+      </script>
+
+    </head>
+    <body>
+
+        <div class="reveal">
+            <div class="slides"><section  data-markdown><script type="text/template">
+## Ethereum Virtual Machine:
+## First Steps
+
+Dominik Teiml
+</script></section><section  data-markdown><script type="text/template">
+### Talk outline
+
+- Talk outline
+- Introduction to K
+- Introduction to EVM
+- EVM Opcodes
+- Specifying K-EVM
+  - Data strutures
+  - Configuration & Opcodes
+
+<br />
+
+<small>Disclaimer: Everything here is my understanding of K and may not be true.</small>
+</script></section><section ><section data-markdown><script type="text/template">
+### Introduction to K
+</script></section><section data-markdown><script type="text/template">
+- Currently, most languages are specified in one of two ways: 
+    - Reference manual - e.g. C Reference manual (1100 p.)
+        - Problems: Not rigorous
+        - Not executable
+    - Reference implementation
+        - Impossible to reason about formally
+        - ...
+</script></section><section data-markdown><script type="text/template">
+<section>
+<iframe class="stretch" src="https://www.youtube.com/embed/eSaIKHQOo4c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</section>
+</script></section><section data-markdown><script type="text/template">
+K is a programming language to define (all) other programming lanaguages
+
+<br />
+
+| concept  | keyword  |   |
+|---|---|---|
+| syntax  | `syntax`  |
+| state  | `configuration`  |
+| semantics | `rule` |
+</script></section><section data-markdown><script type="text/template">
+<img data-src="./k.png" >
+</script></section><section data-markdown><script type="text/template">
+[Demo](https://raw.githubusercontent.com/kframework/k/master/k-distribution/tutorial/1_k/2_imp/lesson_4/imp.k)
+</script></section><section data-markdown><script type="text/template">
+#### WASM Configuration
+<small>
+```a
+    <k> $PGM:Instrs </k>
+    <stack> .Stack </stack>
+    <curFrame>
+    <addrs>   .Map </addrs>
+    <locals>  .Map </locals>
+    <globals> .Map </globals>
+    </curFrame>
+    <store>
+    <funcs>
+            <funcDef multiplicity="*" type="Map">
+            <fname>  0       </fname>
+            <fcode>  .Instrs </fcode>
+            <ftype>  .Type   </ftype>
+            <flocal> .Type   </flocal>
+            <faddrs> .Map    </faddrs>
+            </funcDef>
+    </funcs>
+    </store>
+```
+</small>
+</script></section></section><section ><section data-markdown><script type="text/template">
+### Introduction to EVM
+</script></section><section data-markdown><script type="text/template">
+#### What is a machine?
+
+A machine is a *model of computation*. It has a state and an instruction set (e.g. x86).
+</script></section><section data-markdown><script type="text/template">
+#### What is a virtual machine
+
+A virtual machine is *an emulation of a machine*.
+
+It is an *execution environment*.
+
+- E.g. Java Virtual Machine
+</script></section><section data-markdown><script type="text/template">
+#### What is the Ethereum Virtual Machine
+
+The Ethereum Virtual Machine is *the execution environment for Ethereum transactions*. 
+</script></section><section data-markdown><script type="text/template">
+#### What is Ethereum?
+
+> Ethereum, taken as a whole, can be viewed as a
+transaction-based state machine: we begin with a genesis
+state and incrementally execute transactions to morph
+it into some final state. 
+
+Yellow Paper (Gavin Wood)
+</script></section><section data-markdown><script type="text/template">
+<small>
+More specifically:
+- Ethereum has "external" accounts, but unlike Bitcoin, these cannot hold any code
+- Ethereum also has "contract" accounts (*smart contracts*) that hold code
+- An Ethereum tx has:
+    - *To* (address)
+    - *Value* (integer)
+    - *Data* (bytecode)
+- If *To* contains code (i.e. is a contract), it will be executed
+
+(Abstracting away pr & pub keys, address/account generation, UTXO vs balance model, gas - for now)
+</small>
+</script></section><section data-markdown><script type="text/template">
+I said if the *To* field contains code, it will be executed.
+
+Let's look at how
+</script></section><section data-markdown><script type="text/template">
+- A smart contract is a string of bytes
+    - A byte is $8$ bits ($2^8 = 256$ options)
+        - Can be represented using two hexadecimal numbers ($1$ hexadecimal number = $16$ options, $2$ hexadecimal numbers = $16^2=256$ options)
+- Each byte corresponds to an opcode
+</script></section></section><section ><section data-markdown><script type="text/template">
+### EVM Opcodes
+</script></section><section data-markdown><script type="text/template">
+[Demo](https://github.com/trailofbits/evm-opcodes)
+</script></section><section data-markdown><script type="text/template">
+<small>
+- Arithmetic operations (`modulo 256`)
+- Cryptographic fns (`sha3`)
+- Tx/block-specific info (Caller, Blockhash)
+
+- Program counter
+
+- Stack 
+    - PUSH
+    - POP
+- Memory 
+- Storage 
+
+- Call
+
+</small>
+</script></section><section data-markdown><script type="text/template">
+These opcodes tell us everything we need to know about EVM!
+
+- 32-byte words
+- data cells
+- Calls
+- gas
+</script></section></section><section ><section data-markdown><script type="text/template">
+### Specifying EVM
+</script></section><section data-markdown><script type="text/template">
+We start by defining data structures: [data.md](https://github.com/kframework/evm-semantics/blob/master/data.md)
+</script></section><section data-markdown><script type="text/template">
+Next we specify the configuration and opcode semantics: [evm.md](https://github.com/kframework/evm-semantics/blob/master/evm.md)
+</script></section></section><section  data-markdown><script type="text/template">
+### Conclusion
+#### What is it for?
+
+- K is a cool & fun
+- It's the best way to learn about EVM 
+- It enables formal verification
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: style="text-align: left;" -->
+## THE END</script></section></div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            function extend() {
+              var target = {};
+              for (var i = 0; i < arguments.length; i++) {
+                var source = arguments[i];
+                for (var key in source) {
+                  if (source.hasOwnProperty(key)) {
+                    target[key] = source[key];
+                  }
+                }
+              }
+              return target;
+            }
+            // Optional libraries used to extend on reveal.js
+            var deps = [
+              { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+              { src: 'plugin/math/math.js', async: true }
+            ];
+            // default options to init reveal.js
+            var defaultOptions = {
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'default',
+              dependencies: deps
+            };
+            // options from URL query string
+            var queryOptions = Reveal.getQueryHash() || {};
+            var options = {
+  "notesSeparator": "note:",
+  "separator": "^[\r\n?|\n]---[\r\n?|\n]$",
+  "verticalSeparator": "^[\r\n?|\n]--[\r\n?|\n]$",
+  "theme": "white",
+  "highlightTheme": "darkula",
+  "controls": true,
+  "progress": true,
+  "slideNumber": false,
+  "history": true,
+  "keyboard": true,
+  "overview": true,
+  "center": true,
+  "touch": true,
+  "loop": false,
+  "rtl": false,
+  "shuffle": false,
+  "fragments": true,
+  "embedded": false,
+  "help": true,
+  "showNotes": false,
+  "autoSlide": 0,
+  "autoSlideStoppable": true,
+  "mouseWheel": false,
+  "hideAddressBar": true,
+  "previewLinks": false,
+  "transition": "none",
+  "transitionSpeed": "default",
+  "backgroundTransition": "default",
+  "viewDistance": 3,
+  "parallaxBackgroundImage": "",
+  "parallaxBackgroundSize": "",
+  "parallaxBackgroundHorizontal": null,
+  "parallaxBackgroundVertical": null,
+  "slideExplorerEnabled": true,
+  "browserPath": null,
+  "attributes": ""
+};
+            options = extend(defaultOptions, options, queryOptions);
+            Reveal.initialize(options);
+
+        </script>
+        
+    </body>
+</html>
