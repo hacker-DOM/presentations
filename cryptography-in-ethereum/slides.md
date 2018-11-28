@@ -7,14 +7,14 @@ highlightTheme: "none"
 ## Cryptography in Ethereum
 
 <small>
-dteiml.github.io/presentations --> Cryptography in Ethereum
-</small>
 
 Dominik Teiml
 
 dominik@gnosis.pm
 
-www.Gnosis.pm
+dteiml.github.io/presentations --> Cryptography in Ethereum
+
+</small>
 
 ---
 
