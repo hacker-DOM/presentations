@@ -143,7 +143,7 @@ Most popular opcodes:
 
 --
 
-Note: Other ways to categorize
+Note - Other ways to categorize
 
 - whether they change state (LOG, SSTORE, CALL, CREATE, SELFDESTRUCT)
 - how much stack they eat

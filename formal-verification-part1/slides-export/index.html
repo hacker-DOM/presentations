@@ -154,24 +154,17 @@ Most popular opcodes:
         - RETURN 22
 ```
 </script></section><section data-markdown><script type="text/template">
-<aside class="notes"><p>Other ways to categorize</p>
-<ul>
-<li>whether they change state (LOG, SSTORE, CALL, CREATE, SELFDESTRUCT)</li>
-<li>how much stack they eat<ul>
-<li>NullStackOp, ..., SenaryStackOp</li>
-</ul>
-</li>
-<li>by gas<ul>
-<li>each opcode is assigned a gas constant/fn</li>
-<li>classes:<ul>
-<li>GZero</li>
-<li>GVeryLow, ...</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</aside></script></section><section data-markdown><script type="text/template">
+Note - Other ways to categorize
+
+- whether they change state (LOG, SSTORE, CALL, CREATE, SELFDESTRUCT)
+- how much stack they eat
+    - NullStackOp, ..., SenaryStackOp
+- by gas
+    - each opcode is assigned a gas constant/fn
+    - classes:
+        - GZero
+        - GVeryLow, ...
+</script></section><section data-markdown><script type="text/template">
 ### Precompiled contracts
 
 - 0x1: ECREC
