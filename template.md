@@ -4,10 +4,10 @@ transition: "slide"
 highlightTheme: "none"
 ---
 
-## Cryptography in Ethereum
+## TODO: TITLE
 
 <small>
-dteiml.github.io/presentations --> Cryptography in Ethereum
+dteiml.github.io/presentations --> TODO: TITLE
 </small>
 
 Dominik Teiml
