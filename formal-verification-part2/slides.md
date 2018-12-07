@@ -144,11 +144,98 @@ A K specification usually involves exactly one *spec rule*
     - initial contents of configuration cells
     <!-- Which depends on the language e.g. EVM -->
 - and post-condition
-    - desired outcome
+    - desired contents
+    <!-- of configuration cells after execution -->
 - which are separated by a `=>`
-- Together, the pre- and post-condtions express the intended behavior of the contract (when used for program correctness)
+- Together, the pre- and post-conditions (when used for program correctness) express the intended behavior of the contract
 
 --
+
+<!-- So a K specification must contain pre- and post-conditions separated by => -->
+
+What are the different possibilities in one cell?
+
+<!-- The most popular are -->
+
+--
+
+No rewrite
+
+<small>
+
+| Syntax         | Examples                                                                                                         |
+| -------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Value type     | `<callValue> 0 </callValue>`, `<mode> BYZANTIUM </mode>`, `<code> #parseByteStack("...") </code>`                |
+| Anonymous var  | `<callStack> _ </callStack>`, `<gasPrice> _ </gasPrice>`, `<blockhash> _ </blockhash>`, `<balance> _ </balance>` |
+| Named variable | `<callValue> CALL_VALUE </callValue>`, `<caller_id> MSG_SENDER </caller_id>`                                     |
+
+</small>
+
+--
+
+With rewrite sign
+
+<small>
+
+|   Examples    |
+|  ---  |
+|  `<k> #execute => #halt </k>`,      |
+|  `<output> _ => #asByteStackInWidth(1, 32) </output>`     |
+|  `<pc> 0 => _ </pc>` <br> `<wordStack> .WordStack => _ </wordStack>` <br> `<gas> 100000 => _ </gas>`    |
+
+
+</small>
+
+```
+#hashedLocation("Solidity", 0, CALLER_ID) |-> (BAL_FROM => BAL_FROM -Int VALUE)
+#hashedLocation("Solidity", 0, TO_ID)     |-> (BAL_TO   => BAL_TO   +Int VALUE)
+_:Map
+```
+
+
+
+
+
+
+
+
+--
+
+<!-- Let's look at an example -->
+
+<!-- Let's say we have a super simple imperative language IMP that has a configuration -->
+
+```
+configuration <T>
+                <k> $PGM:Pgm </k>
+                <state> .Map </state>
+              </T>
+```
+
+Then a possible K specification would be
+
+```
+rule <T>
+        <k>Y = X; => . </k>
+        <state> X |-> X_VALUE  _:Map => Y |-> X_VALUE _:Map </state>
+     </T>
+```
+
+--
+
+We can also include constraints on our variables.
+
+```
+rule <T>
+        <k> Y = X % 2; => . </k>
+        <state> X |-> X_VALUE _:Map => Y = 0 _:Map </state>
+     </T>
+    requires #even(X_VALUE)
+```
+
+<!-- And then twe would have another one for odd X -->
+
+<!-- Ok, that was easy, let's try  -->
 
 <!-- TODO: Different ways to write
 
