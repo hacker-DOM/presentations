@@ -17,6 +17,8 @@ dominik@gnosis.pm
 
 </small>
 
+<!-- So let's start with a recap of what we did last time -->
+
 ---
 
 ## Recap
@@ -28,27 +30,33 @@ dominik@gnosis.pm
 --
 
 - EVM
+    - execution environment for Ethereum transactions
     - 140 (75) opcodes
 <!-- Most popular ones are stack manipulations -->
 <!-- Most important ones are those that have effect on Ethereum state  -->
-<!-- - SELFDESTRUCT -->
 <!-- - SSTORE -->
+<!-- - SELFDESTRUCT -->
 <!-- - CREATE -->
 <!-- - CALL -->
 <!-- - CALLCODE -->
 <!-- - DELEGATECALL  -->
 - K language
 <!-- used to define programming languages and virtual machines -->
+<!-- To define a language in K you define its Syntax, Semantics and its Configuration  -->
     - `syntax`, `rule`, `configuration`
 - K-EVM
     <!-- - Ethereum Virtual Machine defined in K -->
     - Configuration comprises:
         - `callState`
+        <!-- - stack, memory, pc, msg.sender, calldata, gas -->
         - `accounts`
         - block Info
+        <!-- - blockhash, difficulty, coinbase, state root etc.  -->
     <!-- - Semantics for each opcode execution -->
 
 --
+
+<!-- Today, we're going to discuss the remaining four topics -->
 
 <img data-src="./graph3.png" style="background: none !important; border: none !important;">
 
@@ -59,7 +67,9 @@ dominik@gnosis.pm
 --
 
 <img data-src="./graph5.png" style="background: none !important; border: none !important;">
-<!-- Said in another way, the goals of this talk are to understand how K works behind the scenes and to see how K is used in practice-->
+<!-- The goal of this talk are to understand how K works behind the scenes and to see how K is used in practice-->
+
+<!-- Pause -->
 
 <!-- So let's start with symbolic execution -->
 
@@ -98,15 +108,19 @@ dominik@gnosis.pm
 
 --
 
+<!-- So: -->
+
 So K framework uses symbolic execution to prove program correctness. But how does it actually prove it?
+
+<!-- That's where Z3 comes in -->
 
 ---
 
 ## Z3
 
---
-
 <!-- Let's take a step back -->
+
+--
 
 SAT
 
@@ -129,6 +143,7 @@ SAT Solvers
 --
 
 <!-- - For formal verification we need more expressiveness than just boolean formulas -->
+<!-- So we use *SMT Solvers* -->
 SMT Solvers
 
 - Satisfiability *modulo theories* 
@@ -139,7 +154,6 @@ SMT Solvers
 
 --
 
-<!-- So how is this useful for formal verification? -->
 - How do we *prove* positive properties (over a set of integers)?
     - e.g. let $x$ be even. Prove $x^2 \equiv 0 \mod 4$
 - We can feed the variable ($x$), constraint (parity) and the equation ($x^2 \not\equiv 0 \mod 4$) 
@@ -193,12 +207,6 @@ A K specification usually involves exactly one *spec rule*
 
 --
 
-<!-- So a K specification must contain pre- and post-conditions separated by => -->
-
-<!-- Let's look at an example -->
-
-<!-- Let's look at an example -->
-
 <!-- Let's say we have a super simple imperative language IMP that has a configuration -->
 
 ```
@@ -240,7 +248,7 @@ What are the different possibilities in one cell?
 
 --
 
-No rewrite
+Static spec rules
 
 <small>
 
@@ -254,7 +262,7 @@ No rewrite
 
 --
 
-With rewrite sign
+Dynamic spec rules
 
 <small>
 
@@ -273,7 +281,7 @@ With rewrite sign
 _:Map
 ```
 
-<!-- Intermezzo: One spec rule tests one case for a function. For simple functions like ERC20 ones, we usually have ~ 2 success cases and ~ 3 failure cases -->
+<!-- NB One spec rule tests one case for a function. For simple functions like ERC20 ones, we usually have ~ 2 success cases and ~ 3 failure cases -->
 
 --
 
@@ -770,7 +778,9 @@ else
 fi
 ```
 
-<!-- DEMO! -->
+--
+
+## DEMO
 
 ---
 
