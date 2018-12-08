@@ -69,7 +69,7 @@ dominik@gnosis.pm
 <img data-src="./graph5.png" style="background: none !important; border: none !important;">
 <!-- The goal of this talk are to understand how K works behind the scenes and to see how K is used in practice-->
 
-<!-- Pause -->
+<!-- Pause --> 
 
 <!-- So let's start with symbolic execution -->
 
