@@ -1,5 +1,5 @@
 ---
-theme : "beige"
+theme : "league"
 transition: "slide"
 highlightTheme: "none"
 ---
@@ -12,7 +12,7 @@ Dominik Teiml
 
 dominik@gnosis.pm
 
-dteiml.github.io/presentations --> TODO: TITLE
+[dteiml.github.io/presentations](dteiml.github.io/presentations) --> TODO: TITLE
 
 </small>
 
