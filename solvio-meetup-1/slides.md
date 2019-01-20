@@ -161,18 +161,26 @@ The Solvio model will allow any "credential providers".
 - A decentralized grading/credentialing system
 - Numerous possibilities to offer/implement
   - Creating
-    - E.g.
+    <!-- - E.g.
       - Essays
       - Science problems
       - Code
       - Podcast
-      - Meetup presentations...
+      - Meetup presentations... -->
     - Get graded in a P2P manner
+    <!-- - Might have to incent others -->
   - Teaching
   - Testing
     - Physical
     - Online
     - One-on-one
+
+--
+
+<!-- How could it work? -->
+<!-- Average -->
+Schelling game
+<!-- Combination -->
 
 ---
 
@@ -204,11 +212,22 @@ A tool that will be able to "understand" math
   - universities
   - math olympiads (or start our own :P)
   - Khan Academy, Coursera...
-<!-- on a business level, this could be the deciding factor in them deciding to integrate with Solvio credentialing
+<!-- on a business level, this could be the deciding factor in them deciding to integrate with Solvio credentialing -->
 
 <!-- So now we've introduced the three main services: Solvio Learn, Solvio Advance and Provio. 
 
 Now, You can see a few threads running through this discussion. Let's look at three -->
+
+---
+
+State of education
+
+- informal education
+  - improving super fast
+  - not effective credentialing
+- formal education
+  - rigid, in-flexible
+- combine the best of both worlds
 
 ---
 
@@ -252,10 +271,7 @@ Essentially, we want to normalize education to the current level technology
 
 ---
 
-
-
----
-
+<!-- .slide: style="text-align: left;" -->
 ## End of Part 1
 
 <!-- Now let's go more in depth -->
@@ -266,10 +282,218 @@ Essentially, we want to normalize education to the current level technology
 
 <!-- Goal is to give you a deeper understanding of how I envision Solvio -->
 
+<!-- The main points will be advatanges of such a system and the best path of execution -->
+
 <!-- Forgive me for not having everything worked out, I never actually work on this full-time (at most 1 day per week) -->
+
+<!-- team, products, sales/usage, supporters/advisors/sponsors -->
 
 <!-- As such, this section contains much more speculation. The exact decisions will be determined by how things go and/or user testing -->
 
+- Advantages
+- Execution 
+  - Legal
+  - Products
+  - How would it work in practice?
+
+---
+
+## Disadvantages
+
+---
+
+## Advantages
+
+<!-- There are so many advantages of this system. I could probably categorize them and write an article about the 100 advantages of Solvio -->
+<!-- As a comprehensive summary is not possible in the time that we have, I will put forth only a few -->
+<!-- It is a combination of rigorous and colloquial (personal experience) evidence -->
+
+- more and more, smart, creative or successful people are dropping out of school
+<!-- - not only people like Dell, Zuck, Branson, Gates and Jobs -->
+<!-- but also people in my own life -->
+<!-- out of some of the most intelligent or accomplished people I know, 9 of them are dropouts -->
+<!-- Also, public figures like Vitalik Buterin -->
+<!-- Peter Thiel's Fellowship -->
+  - this is evidence that schools have not adapted fast enough
+- 12-24 months to enrol in Oxford/Cambridge
+- programming - HackerRank, TripleByte
+
+--
+
+- information theory professor - best way to teach maths is for the first time not on a blackboard
+<!-- graphical tablet, Khan-Academy style -->
+- not enough expertise
+<!-- English -->
+<!-- new areas -->
+<!-- intersections -->
+<!-- Economics, History -->
+<!-- Economic history -->
+<!-- Math, art, music -->
+<!-- Mathematics of art/music -->
+- spread of new ideas
+<!-- - about learning & the world -->
+
+---
+
+## Execution
+
+--
+
+Non-profit
+
+- no cryptoeconomics
+- less regulation
+- people will be motivated nevertheless
+- best for end-goal
+
+<!-- Essentially it comes down to priorities -->
+<!-- Anything that increases chances of this happening -->
+<!-- Good, goal, company, me -->
+
+--
+
+Am starting Estonian non-profit
+
+--
+
+<!-- Let's talk about finances -->
+
+Donations
+- ECF
+- EthGlobal
+- Incubators
+  - Entrepreneur First
+  - Said Business School Incubator
+  <!-- (in Oxford) -->
+  - Y-Combinator
+- Philanthropists
+  - in Czechia
+  <!-- Karel Janecek -->
+  <!-- Martin Roman CEZ -->
+  - in US: Tim Draper, Peter Thiel, Fred Wilson
+  <!-- Bill Gates -->
+- Individuals
+  - Collective giving
+<!-- Idea I had as part of thinking about this project  -->
+<!-- Only give if a certain number of other people also give -->
+
+--
+
+Revenue
+
+- Provio
+- Governments
+
+--
+
+Team
+
+- use freelancing services
+  - Upwork
+  - Toptal
+  - Gitcoin
+- would be g
+- great ot get high-profile figures as advisors/co-founders
+
+--
+
+Will begin working part-time from March
+
+Full-time end of year
+
+Looking for co-founders 
+
+<!-- Which is defined as someone that can join within a year and a half -->
+
+---
+
+## IPEF
+
+--
+
+<!-- First a quick note on framework vs. system. A framework for me is a frame for work. It is more general than a system. This also goes in line with the use for e.g. front-end framework. -->
+
+- Interplanetary Education Framework
+<!-- The name is inspired by recent blockchain projects such as IPFS (Interplanetary File Storage) and IPDB (Interplanetary Database). -->
+- most generic layer for education credentials
+<!-- IPEF will serve as the most generic layer for education credentials. Any authority can submit a credential/certification for a student. This concept generalizes all education systems. For a traditional Czech maturita, the high-school might submit grades (e.g. 1,1,3) for the appropriate subjects. For more centralized education system like SAT, A-Levels or the IB, there would be a controlling authority that would do the same.-->
+<!-- There is no requirement of compatibility between the grading schemas - there is no a priori way to make an A-Level grading schema compatible with an IB one. -->
+- no requirement of compatibility between education systems/grading schemas
+<!-- The whole idea is to do this on the blockchain. The advantage is pretty simple - to reduce education/CV fraud and hence increase trust in society. -->
+- on the blockchain
+<!-- There are a few projects trying to accomplish this already. We could work with one or all of them to make such a simple standard. -->
+- possible to integrate with existing projects
+
+---
+
+## In practice
+
+--
+
+Three stages
+- consumer
+  <!-- - provide learning products for self-learners and students  -->
+- schools, teachers, unis
+<!-- platform -->
+<!-- persuade unis to open up learning resources e.g. lecture notes -->
+<!-- Oxford! -->
+- governments
+  - first decentralized education system with that goal
+<!-- - our goal is to be a better solution WITHOUT funding -->
+<!-- will really expand once it's acknowledged -->
+<!-- visas, corporate & government jobs -->
+<!-- funding -->
+<!-- school vouchers -->
+
+--
+
+<!-- One of the things I am most excited about -->
+<!-- is what I call Decentralized Education Ecosystem (DEE) -->
+Decentralized Education Ecosystem (DEE)
+- social network
+- aggregator of learning frameworks
+- school/tutor dashboard
+- personal learning calendar (mobile app)
+- Airbnb
+
+--
+
+Possible learning systems
+- Start in big cities
+<!-- - high liquidity -->
+- Director of Studies + subject specific mentors
+
+--
+
+Products
+
+Solvio Learn & Advance
+- one app - mobile & web
+- Advance - gamification of learning
+
+Provio
+- separate app
+
+---
+
+<!-- Finally, I'll leave you with two thoughts -->
+
+Bitcoin created a decentralized and open currency
+
+Solvio will create a decentralized and open education system
+
+<!-- Solvio is Bitcoin of education -->
+
+--
+
+<blockquote cite="Mark Twain">
+  &ldquo;I never let schooling get in the way of my education&rdquo;
+</blockquote>
+
+I never let education get in the way of my learning.
+
+<!-- After over 100 years,  -->
+We'll resolve this conflict by unifying learning with education
 
 
 ---
