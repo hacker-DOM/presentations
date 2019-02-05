@@ -1,5 +1,5 @@
 ---
-theme : "league"
+theme: "league"
 transition: "slide"
 highlightTheme: "none"
 ---
