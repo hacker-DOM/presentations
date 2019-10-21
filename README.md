@@ -20,4 +20,4 @@ Solvio Regular Call #1 - [slides](./solvio-call-1/slides-export/), [Recording](h
 
 ## Amos
 
-Amos @ [MTSR](http://www.mtsr-conf.org/home) - [slides](./amos-mtsr/slides-export)
+Amos @ [MTSR](http://www.mtsr-conf.org/home) - [slides](./amos-mtsr/export)
