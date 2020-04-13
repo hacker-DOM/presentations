@@ -18,11 +18,13 @@ Gnosis
 ---
 
 
-<img data-src="./graph.png" style="background: none !important; border: none !important;">
+<!-- <img data-src="/public/graph.png" style="background: none !important; border: none !important;"> -->
+
+![graph.png](graph.png)
 
 --
 
-<img data-src="./graph2.png" style="background: none !important; border: none !important;">
+<img data-src="./public/graph2.png" style="background: none !important; border: none !important;">
 
 --
 

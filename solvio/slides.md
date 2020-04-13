@@ -48,6 +48,16 @@ Members of the edu system should have the option to get credentials in any way t
 
 ---
 
+### Plans
+
+--
+
+Get in touch with universities
+
+Offer possibility to 
+
+--
+
 
 
 

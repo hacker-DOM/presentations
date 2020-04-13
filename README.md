@@ -18,6 +18,8 @@ Formal Verification Part 2 - [slides](./formal-verification-part2/slides-export/
 
 Solvio Regular Call #1 - [slides](./solvio-call-1/slides-export/), [Recording](https://www.youtube.com/watch?v=L9Pva8wvr9E)
 
-## Amos
+Solvio - [slides](./solvio/slides-export)
 
-Amos @ [MTSR](http://www.mtsr-conf.org/home) - [slides](./amos-mtsr/export)
+<!-- ## Amos
+
+Amos @ [MTSR](http://www.mtsr-conf.org/home) - [slides](./amos-mtsr/export) -->
